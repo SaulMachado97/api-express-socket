@@ -1,0 +1,20 @@
+version: '3'
+services:
+  api-tsc-node:
+    build: .
+    container_name: api-tsc-lavado
+    ports:
+      - 3020:3002
+    volumes:
+      - .:/app
+    networks:
+      - mysql-gd-network
+      - lavado-network
+
+networks:
+  mysql-gd-network:
+    external:
+      name: developapigdsipremsolco_gd
+  lavado-network:
+    external:
+      name: apilavado2sipremsolco_lavado_network

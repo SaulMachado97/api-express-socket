@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TypeScript Socket.IO - SIPREMCOL</title>
+    </head>
+
+    <body>
+        <h1>El socket esta corriendo ...</h1>
+        <p id="message"></p>
+        <h3>Estructuras</h3>
+        <p id="estructuras"></p>
+        <h3>El numero aleatorio es: </h3><p id="randomNumber"></p>
+        <script src="http://localhost:3002/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io()
+            var labelMessage = document.getElementById('message');
+            var randomNumber = document.getElementById('randomNumber');
+            var estructuras = document.getElementById('estructuras');
+
+            socket.on('message',  (message) => {
+                console.log(message)
+                labelMessage.innerHTML = message
+            })
+
+            socket.on('random', (message) => {
+                console.log(message)
+                randomNumber.innerHTML = message
+            });
+
+            socket.on("estructuras", (message) => {
+                estructuras.innerHTML = message
+            });
+
+            socket.on('updateEstructuras',  (message) => {
+                console.log(message)
+            });
+        </script>
+    </body>
+</html>
