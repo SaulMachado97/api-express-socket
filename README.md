@@ -1,0 +1,1 @@
+NodeJS + Express + Socket.io + Redis Client + Mongoose + Sequelize + TypeScript
